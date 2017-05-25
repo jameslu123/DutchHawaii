@@ -12,6 +12,7 @@ import ProductScreen from './App/Containers/ProductScreen';
 import CartAndCheckout from './App/Containers/CartAndCheckout';
 import SubmitScreen from './App/Containers/SubmitScreen';
 import Contact from './App/Containers/Contact';
+import CardFormScreen from './App/Containers/CardFormScreen';
 import NavigationDrawer from './App/Navigation/NavigationDrawer';
 import MenuItemRow from './App/Components/MenuItemRow';
 
@@ -21,7 +22,7 @@ const store = configureStore()
 
 class App extends React.Component {
   render() {
-    const MainNavigator = StackNavigator({
+    const MainNavigator = TabNavigator({
       // Home:
       // {
       //   screen: DrawerNavigator({
@@ -30,13 +31,22 @@ class App extends React.Component {
       //     SideBar: {screen: NavigationDrawer}
       //   })
       // },
-      Menu: {screen: MenuList},
-      foodList: {screen: FoodListPerCategory},
-      item:{screen: MenuItemRow},
-      product: {screen: ProductScreen},
-      Cart: {screen: CartAndCheckout},
-      Order: {screen: SubmitScreen}
-
+      Home: {
+        screen: StackNavigator({
+          Menu: {screen: MenuList},
+          foodList: {screen: FoodListPerCategory},
+          //item:{screen: MenuItemRow},
+          product: {screen: ProductScreen}
+        })
+      },
+      Profile: {screen: Contact},
+      Checkout: {
+        screen: StackNavigator({
+          Cart: {screen: CartAndCheckout},
+          CardForm:{screen: CardFormScreen},
+          Order: {screen: SubmitScreen}
+        })
+      }
       //welcome: {screen: WelcomeScreen}
     });
 

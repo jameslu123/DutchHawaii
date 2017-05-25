@@ -69,15 +69,6 @@ class Menu extends React.Component {
           }
         };
       },
-      drawerLabel: 'Home',
-      drawerIcon: ({ tintColor }) => (
-        <Icon
-          name='cutlery'
-          type='font-awesome'
-          color='#f50'
-          style={[styles.icon, {tintColor: tintColor}]}
-        />
-      ),
       headerStyle: {backgroundColor: '#f2f1f3'}
   };
 
