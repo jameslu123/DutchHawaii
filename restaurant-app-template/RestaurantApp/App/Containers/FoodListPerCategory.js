@@ -39,11 +39,8 @@ class FoodListPerCategory extends React.Component {
     // Datasource is always in state
     this.state = {
       dataSource: ds.cloneWithRows(this.props.navigation.state.params.items||[]),
-      navigation: navigate
     }
 
-    //console.log('title'+ this.props.navigation.params.title);
-    console.log('title'+ this.props.title)
   }
 
   static navigationOptions = {

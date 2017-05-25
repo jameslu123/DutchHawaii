@@ -41,7 +41,7 @@ class CartAndCheckout extends React.Component {
             backgroundColor="rgba(0,0,0,0)"
             color="rgba(0, 122, 255, 1)"
             title={I18n.t('continueToCheckout')}
-            onPress={() => navigate('Order')} />
+            onPress={() => navigate('CardForm')} />
       </ScrollView>
     )
   }
