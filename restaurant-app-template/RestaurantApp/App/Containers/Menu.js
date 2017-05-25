@@ -42,20 +42,43 @@ class Menu extends React.Component {
   static navigationOptions = {
       title: 'Menu',
       header: ({ navigate }) => {
-      return {
-        right: (
-          <Icon
-            name='cutlery'
-            type='font-awesome'
-            color='#f50'
-            onPress={() => navigate('Cart')}
-          />
-        ),
-        style: {
-          marginTop: Platform.OS === 'android' ? 20 : 0
-        }
-      };
-    }
+        return {
+          right: (
+            <Icon
+              name='cutlery'
+              type='font-awesome'
+              color='#00aced'
+              onPress={() => navigate('Cart')}
+              containerStyle ={{marginRight:15}}
+            />
+          ),
+          style: {
+            marginTop: Platform.OS === 'android' ? 20 : 0
+          },
+          left: (
+            <Icon
+              name='bars'
+              type='font-awesome'
+              color='#f50'
+              onPress={() => navigate('SideBar')}
+              containerStyle ={{marginLeft:10}}
+            />
+          ),
+          style: {
+            marginTop: Platform.OS === 'android' ? 20 : 0
+          }
+        };
+      },
+      drawerLabel: 'Home',
+      drawerIcon: ({ tintColor }) => (
+        <Icon
+          name='cutlery'
+          type='font-awesome'
+          color='#f50'
+          style={[styles.icon, {tintColor: tintColor}]}
+        />
+      ),
+      headerStyle: {backgroundColor: '#f2f1f3'}
   };
 
   componentDidMount() {
@@ -74,7 +97,12 @@ class Menu extends React.Component {
 
   onPress(index){
     //window.alert('Rounded Button Pressed!'+index);
-    NavigationActions.foodList({title:this.state.items[index].title,items:this.state.items[index].items});
+    // console.log('items pass to food list'+this.state.items[index].items)
+    // this.props.navigation.navigate( 'foodList',{},{type: "Navigate",
+    //                                               routeName: "foodList",
+    //                                                 params:{title:this.state.items[index].title,items:this.state.items[index].items}
+    //                                             });
+      this.props.navigation.navigate( 'foodList',{title:this.state.items[index].title,items:this.state.items[index].items});
   }
 
   /* ***********************************************************
@@ -118,9 +146,6 @@ class Menu extends React.Component {
 
   render () {
     return (
-
-
-
       <Parallax.ScrollView style={styles.scrollView}>
                   {this.state.items.map((section, i) => (
                       <Parallax.Image
@@ -134,7 +159,7 @@ class Menu extends React.Component {
                           <Text style={styles.description}>{section.description}</Text>
                       </Parallax.Image>
                   ))}
-              </Parallax.ScrollView>
+      </Parallax.ScrollView>
     )
   }
 }

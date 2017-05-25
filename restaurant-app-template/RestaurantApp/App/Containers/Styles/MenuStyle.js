@@ -8,7 +8,7 @@ export default StyleSheet.create({
   ...ApplicationStyles.screen,
   container: {
     flex: 1,
-    marginTop: Metrics.navBarHeight,
+    //marginTop: Metrics.navBarHeight,
     backgroundColor: Colors.background
   },
   row: {
@@ -33,7 +33,8 @@ export default StyleSheet.create({
     marginTop: Metrics.baseMargin
   },
   "scrollView":{
-    marginTop:Metrics.navBarHeight,
+    flex: 1,
+    //marginTop:Metrics.navBarHeight,
   },
   "image": {
         "width": width,

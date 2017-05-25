@@ -1,7 +1,7 @@
 import Expo from 'expo'
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { TabNavigator, StackNavigator, DrawerNavigator} from 'react-navigation';
+import { StyleSheet, Text, View, ScrollView} from 'react-native';
+import { TabNavigator, StackNavigator, DrawerNavigator, DrawerItems} from 'react-navigation';
 import configureStore from './App/Store/Store';
 import { Provider } from 'react-redux';
 
@@ -13,8 +13,7 @@ import CartAndCheckout from './App/Containers/CartAndCheckout';
 import SubmitScreen from './App/Containers/SubmitScreen';
 import Contact from './App/Containers/Contact';
 import NavigationDrawer from './App/Navigation/NavigationDrawer';
-import WelcomeScreen from './WelcomeScreen'
-import HomeScreen from './HomeScreen'
+import MenuItemRow from './App/Components/MenuItemRow';
 
 //import Button from 'react-native-button';
 
@@ -23,26 +22,18 @@ const store = configureStore()
 class App extends React.Component {
   render() {
     const MainNavigator = StackNavigator({
-      //Home: {screen: MenuList},
+      // Home:
       // {
       //   screen: DrawerNavigator({
-      //     Menu: {screen : StackNavigator({
-      //       menulist: {screen: MenuList},
-      //       foodList: {screen: FoodListPerCategory},
-      //       product: {screen: ProductScreen}
-      //     },{
-      //       initialRoutName: MenuList
-      //     })},
+      //     menulist: {screen: MenuList},
+      //     //Menu: {screen: MenuList},
       //     SideBar: {screen: NavigationDrawer}
       //   })
       // },
-      // Checkout: {
-      //   screen: StackNavigator({
-      //     Cart: {screen: CartAndCheckout},
-      //     Order: {screen: SubmitScreen}
-      //   })
-      // }
-      home: {screen: MenuList},
+      Menu: {screen: MenuList},
+      foodList: {screen: FoodListPerCategory},
+      item:{screen: MenuItemRow},
+      product: {screen: ProductScreen},
       Cart: {screen: CartAndCheckout},
       Order: {screen: SubmitScreen}
 

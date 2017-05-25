@@ -3,6 +3,8 @@ import { View, Text, ListView } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import MenuItemRow from '../Components/MenuItemRow'
+import { Button, Icon } from 'react-native-elements'
+
 
 // For empty lists
 import AlertMessage from '../Components/AlertMessageComponent'
@@ -21,7 +23,6 @@ class FoodListPerCategory extends React.Component {
     * Usually this should come from Redux mapStateToProps
     *************************************************************/
     const dataObjects = [];
-
     /* ***********************************************************
     * STEP 2
     * Teach datasource how to detect if rows are different
@@ -33,11 +34,40 @@ class FoodListPerCategory extends React.Component {
     // DataSource configured
     const ds = new ListView.DataSource({rowHasChanged})
 
+    const { navigate } = this.props.navigation;
+
     // Datasource is always in state
     this.state = {
-      dataSource: ds.cloneWithRows(this.props.items||[])
+      dataSource: ds.cloneWithRows(this.props.navigation.state.params.items||[]),
+      navigation: navigate
     }
+
+    //console.log('title'+ this.props.navigation.params.title);
+    console.log('title'+ this.props.title)
   }
+
+  static navigationOptions = {
+      title: 'Items',
+  };
+
+  // static navigationOptions = {
+  //     title: "Items",
+  //     header: ({state, setParams, goBack}, defaultHeader) => ({
+  //         ...defaultHeader,
+  //         left: (
+  //           <Button underlayColor='transparent'
+  //                   backgroundColor ='transparent'
+  //                   icon={{name: 'angle-left', type: 'font-awesome'}}
+  //                   onPress={e=>{e.preventDefault();
+  //                     console.log("clicked")
+  //                     goBack();
+  //                   }}
+  //           >
+  //             <Icon name='angle-left' type='font-awesome' style ={{color:"#fff", marginLeft:5}} />
+  //           </Button>)
+  //         })
+  //   }
+
 
   /* ***********************************************************
   * STEP 3
@@ -47,9 +77,12 @@ class FoodListPerCategory extends React.Component {
   * e.g.
     return <MyCustomCell title={rowData.title} description={rowData.description} />
   *************************************************************/
-  _renderRow (rowData) {
+  _renderRow = (rowData) => {
+    console.log(rowData.name);
+    console.log('title2'+ JSON.stringify(this.props.navigation.state));
+
     return (
-      <MenuItemRow data={rowData} />
+      <MenuItemRow data={rowData} navigation={this.props.navigation}/>
     )
   }
 
@@ -60,9 +93,10 @@ class FoodListPerCategory extends React.Component {
   }
 
   render () {
+    console.log('title'+ JSON.stringify(this.props.navigation.state));
+    console.log('state'+ JSON.stringify(this.state));
     return (
       <View style={styles.container}>
-        <AlertMessage title='There are no items to be displayed' show={this._noRowData()} />
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}

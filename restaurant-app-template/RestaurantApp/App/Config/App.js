@@ -11,10 +11,15 @@ exports.sendToEmail="restaurant-app.3my69sr@mail.smooch.io" //YOU CAN USE SMOOCH
 
 //FireBase  --- CHANGE THEM WITH YOUR OWN FIREBASE DB
 exports.firebaseConfig = {
-  apiKey: "AIzaSyDfyLjU7tziW3c9uE-SxpSlRJJsSc7bWIU",
-  authDomain: "restaurantapp-8b630.firebaseapp.com",
-  databaseURL: "https://restaurantapp-8b630.firebaseio.com",
-  storageBucket: "restaurantapp-8b630.appspot.com",
+  // apiKey: "AIzaSyDfyLjU7tziW3c9uE-SxpSlRJJsSc7bWIU",
+  // authDomain: "restaurantapp-8b630.firebaseapp.com",
+  // databaseURL: "https://restaurantapp-8b630.firebaseio.com",
+  // storageBucket: "restaurantapp-8b630.appspot.com",
+
+  apiKey: "AIzaSyAgSSYizMqKzdLeN7E9dlTX2e81OaxrptQ",
+  authDomain: "restaurant-7075d.firebaseapp.com",
+  databaseURL: "https://restaurant-7075d.firebaseio.com",
+  storageBucket: "restaurant-7075d.appspot.com",
 };
 
 

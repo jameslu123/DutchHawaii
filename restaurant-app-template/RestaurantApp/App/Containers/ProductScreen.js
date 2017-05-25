@@ -23,32 +23,33 @@ class ProductScreen extends React.Component {
   }
 
   render() {
+    console.log('product'+ JSON.stringify(this.props.navigation.state));
   return (
     <ParallaxScrollView
                     backgroundColor={Colors.background}
                     contentBackgroundColor={Colors.background}
-                    parallaxHeaderHeight={350}
+                    parallaxHeaderHeight={250}
                     renderBackground={() => (
-                        <View style={{marginTop: Metrics.navBarHeight}}>
-                            <Image style={styles.thePhoto} source={{uri: this.props.data.photo}}  />
+                        <View>
+                            <Image style={styles.thePhoto} source={{uri: this.props.navigation.state.params.data.photo}}  />
                         </View>
                     )}
                     renderForeground={() => (
                            <View style={styles.infoPanel}>
                                 <View style={styles.infoHolder}>
-                                    <Text style={styles.nameInfo}>{this.props.data.name}</Text>
+                                    <Text style={styles.nameInfo}>{this.props.navigation.state.params.data.name}</Text>
 
                                 </View>
                             </View>
                           )}>
                     <View>
-                      <Text style={styles.descriptionInfo}>{this.props.data.description }</Text>
-                      {Object.keys(this.props.data.info||{}).map((section,i) => (
-                        <InfoProductRow  key={i} name={section} value={this.props.data.info[section]} />
+                      <Text style={styles.descriptionInfo}>{this.props.navigation.state.params.data.description }</Text>
+                      {Object.keys(this.props.navigation.state.params.data.info||{}).map((section,i) => (
+                        <InfoProductRow  key={i} name={section} value={this.props.navigation.state.params.data.info[section]} />
                       ))}
                       <Text style={styles.headerLabel} >{I18n.t('variants')}</Text>
-                      {(this.props.data.prices||[]).map((section,i) => (
-                        <AddToCartRow key={i} data={section} productName={this.props.data.name} value={Config.priceToPriceWithCurrency(section.price_value)} />
+                      {(this.props.navigation.state.params.data.prices||[]).map((section,i) => (
+                        <AddToCartRow key={i} data={section} productName={this.props.navigation.state.params.data.name} value={Config.priceToPriceWithCurrency(section.price_value)} />
                       ))}
                     </View>
                 </ParallaxScrollView>

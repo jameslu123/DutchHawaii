@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image,TouchableHighlight } from 'react-native'
+import { View, Text, Image, TouchableHighlight } from 'react-native'
 import styles from './Styles/MenuItemRowStyle'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import { Colors, Metrics, ApplicationStyles } from '../Themes/'
@@ -20,15 +20,16 @@ export default class MenuItemRow extends React.Component {
 
   constructor(props){
     super(props)
-
-    console.log(this.props);
+    console.log('item '+ JSON.stringify(this.props));
   }
 
   render () {
+    const { navigate } = this.props.navigation;
     return (
-      <TouchableHighlight underlayColor={Colors.background} onPress={() => {
-          NavigationActions.productScreen({title:this.props.data.name,data:this.props.data});
-        }}>
+      <TouchableHighlight
+        underlayColor={Colors.background}
+        onPress={() => navigate('product', {title:this.props.data.name,data:this.props.data})}
+      >
         <View style={styles.row}>
           <Image style={styles.thumb} source={{ uri: this.props.data.photo }} />
           <View style={styles.info}>
