@@ -12,8 +12,12 @@ import ProductScreen from './App/Containers/ProductScreen';
 import CartAndCheckout from './App/Containers/CartAndCheckout';
 import SubmitScreen from './App/Containers/SubmitScreen';
 import Contact from './App/Containers/Contact';
+import CardFormScreen from './App/Containers/CardFormScreen';
 import NavigationDrawer from './App/Navigation/NavigationDrawer';
 import MenuItemRow from './App/Components/MenuItemRow';
+import ScannerScreen from './App/Containers/ScannerScreen';
+import WelcomeScreen from './WelcomeScreen';
+
 
 //import Button from 'react-native-button';
 
@@ -21,7 +25,10 @@ const store = configureStore()
 
 class App extends React.Component {
   render() {
-    const MainNavigator = StackNavigator({
+    const MainNavigator = TabNavigator({
+      //Welcome: {screen: WelcomeScreen},
+      Scanner: {screen: ScannerScreen},
+      Main: {screen: TabNavigator({
       // Home:
       // {
       //   screen: DrawerNavigator({
@@ -30,15 +37,32 @@ class App extends React.Component {
       //     SideBar: {screen: NavigationDrawer}
       //   })
       // },
-      Menu: {screen: MenuList},
-      foodList: {screen: FoodListPerCategory},
-      item:{screen: MenuItemRow},
-      product: {screen: ProductScreen},
-      Cart: {screen: CartAndCheckout},
-      Order: {screen: SubmitScreen}
 
-      //welcome: {screen: WelcomeScreen}
-    });
+          Home: {
+            screen: StackNavigator({
+              Menu: {screen: MenuList},
+              foodList: {screen: FoodListPerCategory},
+              //item:{screen: MenuItemRow},
+              product: {screen: ProductScreen}
+            })
+          },
+          Profile: {screen: Contact},
+          Checkout: {
+            screen: StackNavigator({
+              Cart: {screen: CartAndCheckout},
+              CardForm:{screen: CardFormScreen},
+              Order: {screen: SubmitScreen}
+            })
+          }
+          //welcome: {screen: WelcomeScreen}
+        })
+      }
+    // },{
+    //   navigationOptions:{
+    //     tabBar: {visible: false }
+    //   },
+    //   lazyLoad: true
+     });
 
     console.log('start to render tab')
     return (
