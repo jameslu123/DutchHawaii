@@ -39,38 +39,28 @@ class Menu extends React.Component {
 
   }
 
-  static navigationOptions = {
+  static navigationOptions = ({navigation, screenProps}) => ({
       title: 'Menu',
-      header: ({ navigate }) => {
-        return {
-          right: (
-            <Icon
-              name='cutlery'
-              type='font-awesome'
-              color='#00aced'
-              onPress={() => navigate('Cart')}
-              containerStyle ={{marginRight:15}}
-            />
-          ),
-          style: {
-            marginTop: Platform.OS === 'android' ? 20 : 0
-          },
-          left: (
-            <Icon
-              name='bars'
-              type='font-awesome'
-              color='#f50'
-              onPress={() => navigate('SideBar')}
-              containerStyle ={{marginLeft:10}}
-            />
-          ),
-          style: {
-            marginTop: Platform.OS === 'android' ? 20 : 0
-          }
-        };
+      headerRight:
+        <Icon
+          name='cutlery'
+          type='font-awesome'
+          color='#00aced'
+          onPress={() => navigation.navigate('Cart')}
+          containerStyle ={{marginRight:15}}
+        />,
+      headerStyle: {
+        marginTop: Platform.OS === 'android' ? 20 : 0
       },
-      headerStyle: {backgroundColor: '#f2f1f3'}
-  };
+      headerLeft:
+        <Icon
+          name='bars'
+          type='font-awesome'
+          color='#f50'
+          onPress={() => navigation.navigate('SideBar')}
+          containerStyle ={{marginLeft:10}}
+        />,
+  });
 
   componentDidMount() {
     console.log("Component Mounted");
@@ -132,8 +122,6 @@ class Menu extends React.Component {
 
     });
   }
-
-
 
   render () {
     return (
