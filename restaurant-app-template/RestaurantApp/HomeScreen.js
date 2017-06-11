@@ -4,24 +4,19 @@ import { Button } from 'react-native-elements';
 
 
 class HomeScreen extends Component {
-  static navigationOptions = {
-      title: 'Home',
-      header: ({ navigate }) => {
-      return {
-        right: (
-          <Button
-            title="WelcomeScreen"
-            onPress={() => navigate('welcome')}
-            backgroundColor="rgba(0,0,0,0)"
-            color="rgba(0, 122, 255, 1)"
-          />
-        ),
-        style: {
-          marginTop: Platform.OS === 'android' ? 24 : 0
-        }
-      };
-    }
-  };
+  static navigationOptions = ({ navigation, screenProps }) => ({
+    title: 'Home',
+    headerRight:
+      <Button
+        title="WelcomeScreen"
+        onPress={() => navigation.navigate('welcome')}
+        backgroundColor="rgba(0,0,0,0)"
+        color="rgba(0, 122, 255, 1)"
+      />,
+    headerStyle: {
+      marginTop: Platform.OS === 'android' ? 24 : 0
+    },
+  });
 
   render() {
     const { navigate } = this.props.navigation;

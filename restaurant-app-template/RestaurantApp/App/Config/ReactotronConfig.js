@@ -1,3 +1,4 @@
+/*
 import Reactotron from 'reactotron'
 import {Platform} from 'react-native'
 
@@ -12,3 +13,4 @@ if (__DEV__) {
 } else {
   console.tron = () => false
 }
+*/
