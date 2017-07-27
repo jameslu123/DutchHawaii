@@ -1,34 +1,31 @@
 import React from 'react';
-import { Text, View , Dimensions} from 'react-native';
-import Expo, { BarCodeScanner, Permissions } from 'expo';
+import { Text, View , Dimensions, StyleSheet} from 'react-native';
+import Expo, { Constants, BarCodeScanner, Permissions } from 'expo';
 import { connect } from 'react-redux'
 
 
-class ScannerScreen extends React.Component {
+export default class ScannerScreen extends React.Component {
   state = {
     hasCameraPermission: null,
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
     this.setState({hasCameraPermission: status === 'granted'});
   }
 
   render() {
     const { hasCameraPermission } = this.state;
-    const { navigate } = this.props.navigation;
-    console.log('print'+ hasCameraPermission);
-
     if (hasCameraPermission === null) {
-      return <View />;
+      return <Text>Requesting for camera permission</Text>;
     } else if (hasCameraPermission === false) {
       return <Text>No access to camera</Text>;
     } else {
       return (
-        <View style={{flex: 1, width: Dimensions.get("window")}}>
+        <View style={styles.container}>
           <BarCodeScanner
             onBarCodeRead={this._handleBarCodeRead}
-            style={StyleSheet.absoluteFill}
+            style={{height: 200, width: 200}}
           />
         </View>
       );
@@ -36,20 +33,24 @@ class ScannerScreen extends React.Component {
   }
 
   _handleBarCodeRead = (data) => {
-    console.log(JSON.stringify(data));
-    navigate('Menu')
+    alert(JSON.stringify(data));
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    // ...redux state to props here
-  }
-}
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ScannerScreen)
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ecf0f1',
+  },
+  paragraph: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#34495e',
+  },
+});

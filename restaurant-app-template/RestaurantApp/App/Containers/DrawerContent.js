@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { ScrollView, Image,Linking,View } from 'react-native'
 import styles from './Styles/DrawerContentStyle'
 import { Images } from '../Themes'
@@ -79,7 +80,7 @@ class DrawerContent extends Component {
             <DrawerButton icon='phone' text='Call Us' onPress={this.handlePressCall} />
         </View>
 
-        { 
+        {
 
           //Enable this ones if you want to extend / debug or learn from this app
 
@@ -97,7 +98,7 @@ class DrawerContent extends Component {
 }
 
 DrawerContent.contextTypes = {
-  drawer: React.PropTypes.object
+  drawer: PropTypes.object
 }
 
 export default DrawerContent

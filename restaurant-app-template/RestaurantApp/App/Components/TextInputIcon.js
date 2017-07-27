@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { View, Text,Image,TextInput } from 'react-native'
 import styles from './Styles/TextInputIconStyle'
 import { Colors, Metrics, ApplicationStyles } from '../Themes/'
@@ -8,8 +9,8 @@ export default class TextInputIcon extends React.Component {
 
   // // Prop type warnings
   // static propTypes = {
-  //   someProperty: React.PropTypes.object,
-  //   someSetting: React.PropTypes.bool.isRequired
+  //   someProperty: PropTypes.object,
+  //   someSetting: PropTypes.bool.isRequired
   // }
   //
   // // Defaults for props
