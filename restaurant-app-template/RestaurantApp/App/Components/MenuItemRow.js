@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { View, Text, Image, TouchableHighlight } from 'react-native'
 import styles from './Styles/MenuItemRowStyle'
 import { Actions as NavigationActions } from 'react-native-router-flux'
@@ -9,8 +10,8 @@ export default class MenuItemRow extends React.Component {
 
   // // Prop type warnings
   // static propTypes = {
-  //   someProperty: React.PropTypes.object,
-  //   someSetting: React.PropTypes.bool.isRequired
+  //   someProperty: PropTypes.object,
+  //   someSetting: PropTypes.bool.isRequired
   // }
   //
   // // Defaults for props

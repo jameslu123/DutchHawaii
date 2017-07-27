@@ -5,7 +5,7 @@ import Button from '../Components/Button'
 import testID from '../Utils/testID'
 
 stripe.init({
-  publishableKey: 'pk_test_Zn8wirKSM4M4FFUOvOSvlZc8',
+  publishableKey: 'pk_test_KlQwnM6ftGwlW6EsXi1gF4V2',
 })
 
 export default class CardFormScreen extends PureComponent {

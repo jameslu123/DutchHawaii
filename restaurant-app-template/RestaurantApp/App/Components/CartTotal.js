@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { View, Text } from 'react-native'
 import styles from './Styles/CartTotalStyle'
 import I18n from '../I18n/I18n.js'
@@ -8,8 +9,8 @@ export default class CartTotal extends React.Component {
 
   // // Prop type warnings
   // static propTypes = {
-  //   someProperty: React.PropTypes.object,
-  //   someSetting: React.PropTypes.bool.isRequired
+  //   someProperty: PropTypes.object,
+  //   someSetting: PropTypes.bool.isRequired
   // }
   //
   // // Defaults for props

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { View, Text, Image } from 'react-native'
 import styles from './Styles/MenuCategoryRowStyle'
 import ProgressiveImage from './ProgressiveImage'
@@ -8,8 +9,8 @@ export default class MenuCategoryRow extends React.Component {
 
    // Prop type warnings
    static propTypes = {
-     title: React.PropTypes.string.isRequired,
-     description: React.PropTypes.string.isRequired
+     title: PropTypes.string.isRequired,
+     description: PropTypes.string.isRequired
    }
 
    // Defaults for props
@@ -28,7 +29,7 @@ export default class MenuCategoryRow extends React.Component {
           source='https://upload.wikimedia.org/wikipedia/commons/c/cc/ESC_large_ISS022_ISS022-E-11387-edit_01.JPG'
           thumbnail='http://i.imgur.com/eVAFUhj.png'
         />
-        
+
 
       </View>
 

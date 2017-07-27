@@ -1,6 +1,7 @@
 // @flow
 
-import React, {PropTypes} from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import { View, Text,WebView } from 'react-native'
 import styles from './Styles/PayPalPaymentStyle'
 import PayPalAPI from '../Services/PayPal'
@@ -191,8 +192,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(PayPalPayment)
 
 // // Prop type warnings
 // PayPalPayment.propTypes = {
-//   someProperty: React.PropTypes.object,
-//   someSetting: React.PropTypes.bool.isRequired
+//   someProperty: PropTypes.object,
+//   someSetting: PropTypes.bool.isRequired
 // }
 //
 // // Defaults for props

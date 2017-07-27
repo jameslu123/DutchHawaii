@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { View, Text, TouchableHighlight, ActivityIndicator, Platform, StyleSheet } from 'react-native'
 
 export default class Button extends Component {

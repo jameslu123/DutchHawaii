@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { ScrollView, Text } from 'react-native'
 import { connect } from 'react-redux'
 import Actions from '../Actions/Creators'

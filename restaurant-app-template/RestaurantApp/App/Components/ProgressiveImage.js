@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Image, Animated, View } from 'react-native'
 import { Images } from '../Themes'
 import styles from './Styles/ProgressiveImageStyle'

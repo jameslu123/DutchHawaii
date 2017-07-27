@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Text, TouchableOpacity,View } from 'react-native'
 import styles from './Styles/DrawerButtonStyles'
 import Icon from 'react-native-vector-icons/FontAwesome'
