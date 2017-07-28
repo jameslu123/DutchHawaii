@@ -96,12 +96,12 @@ class Menu extends React.Component {
     itemsRef.on('value', (snap) => {
 
       // get children as an array
-      var items = [];
+      var snapshotItems = [];
       var theReceivedItems=snap.val().items;
-      console.log(theReceivedItems);
+      //console.log(theReceivedItems);
       for(var i=0;i<theReceivedItems.length;i++){
-        console.log(theReceivedItems[i].name);
-        items.push({
+        //console.log(theReceivedItems[i].name);
+        snapshotItems.push({
           title: theReceivedItems[i].name,
           items: theReceivedItems[i].items,
           description:theReceivedItems[i].description,
@@ -118,7 +118,7 @@ class Menu extends React.Component {
       });*/
 
       this.setState({
-        items: items
+        items: snapshotItems
       });
 
     });
