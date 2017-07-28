@@ -98,6 +98,7 @@ class FoodListPerCategory extends React.Component {
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}
+          removeClippedSubviews={false}
         />
       </View>
     )

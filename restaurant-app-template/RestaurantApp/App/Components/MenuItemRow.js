@@ -21,7 +21,7 @@ export default class MenuItemRow extends React.Component {
 
   constructor(props){
     super(props)
-    console.log('item '+ JSON.stringify(this.props));
+    //console.log('item '+ JSON.stringify(this.props));
   }
 
   render () {
