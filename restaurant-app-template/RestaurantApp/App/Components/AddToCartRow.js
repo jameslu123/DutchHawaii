@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import I18n from '../I18n/I18n.js'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { Colors, Metrics, ApplicationStyles } from '../Themes/'
+import { generate } from 'shortid'
 
 export class AddToCartRow extends React.Component {
 
@@ -31,6 +32,7 @@ export class AddToCartRow extends React.Component {
       name:this.props.productName,
       description:this.props.data.price_name,
       price:this.props.data.price_value,
+      item:shortid.generate(),
       qty:1
     }
     console.log(this.props);

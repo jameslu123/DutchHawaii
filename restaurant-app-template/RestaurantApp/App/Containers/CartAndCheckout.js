@@ -32,10 +32,12 @@ class CartAndCheckout extends React.Component {
 
   render () {
     const { navigate } = this.props.navigation;
+    // CartRow's key is not unique if the same item can be added more than once.
     return (
       <ScrollView style={styles.container}>
-        {(this.props.items||[]).map((section,i) => (
-          <CartRow action={this.setQty} index={i} element={section} />
+        {(this.props.items||[]).map((itemElement,i) => (
+          <CartRow key={itemElement.name + itemElement.description}
+            action={this.setQty} index={i} element={itemElement} />
         ))}
         <CartTotal items={this.props.items||[]} />
         <Button
