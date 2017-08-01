@@ -1,8 +1,8 @@
 {
   "expoServerNgrokUrl": "https://n2-rhv.jameslu123.restaurantapp.exp.direct",
   "packagerNgrokUrl": "https://packager.n2-rhv.jameslu123.restaurantapp.exp.direct",
-  "ngrokPid": 63335,
-  "packagerPort": 19001,
-  "packagerPid": 63324,
+  "ngrokPid": 66543,
+  "packagerPort": 19002,
+  "packagerPid": 66531,
   "expoServerPort": 19000
 }

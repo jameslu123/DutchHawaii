@@ -32,7 +32,7 @@ export class AddToCartRow extends React.Component {
       name:this.props.productName,
       description:this.props.data.price_name,
       price:this.props.data.price_value,
-      item:shortid.generate(),
+      id:generate(),
       qty:1
     }
     console.log(this.props);
